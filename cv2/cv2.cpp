@@ -1,6 +1,14 @@
 ﻿#include <iostream>
 #include <windows.h>
 #include <math.h>
+#include <thread>
+#include <chrono>
+
+using std::cout;
+using std::endl;
+using std::copy;
+using std::this_thread::sleep_for;
+using namespace std::chrono_literals;
 
 int common_divisor(int x, int y) {
     int tmp;
@@ -98,10 +106,6 @@ void data_prepair(POINT pt_start, POINT pt_end, HDC hd) {
     draw_and_raster(pt_start, pt_end, pomer_x * nasobitel_x, pomer_y * nasobitel_y, nasobitel_x, nasobitel_y, hd);
 }
 
-void do_circle(HDC hd) {
-
-}
-
 void draw_anyline(HDC hd) {
     POINT pt_start;
     pt_start.x = rand() % 499 + 1;
@@ -117,8 +121,8 @@ void draw_anyline(HDC hd) {
     //pt_end.x = 0;
     //pt_end.y = 100;
 
-    std::cout << "start x:" << pt_start.x << " y:" << pt_start.y << std::endl;
-    std::cout << "end x:" << pt_end.x << " y:" << pt_end.y << std::endl;
+    //std::cout << "start x:" << pt_start.x << " y:" << pt_start.y << std::endl;
+    //std::cout << "end x:" << pt_end.x << " y:" << pt_end.y << std::endl;
 
     data_prepair(pt_start, pt_end, hd);
 }
@@ -165,7 +169,6 @@ int main()
 
     //draw_line_45deg(hdc);
     draw_anyline(hdc);
-    //do_circle(hdc);
     
     return 0;
 }
